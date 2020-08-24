@@ -7,7 +7,7 @@ import { Select } from "./Select"
 const travelsRepo = api()
 
 export const Form = () => {
-  const [destination, setDestination] = useState('India')
+  const [destination, setDestination] = useState('india')
   const [email, setEmail] = useState('')
   const [emailError, setEmailError] = useState('')
   const [firstName, setFirstName] = useState('')
