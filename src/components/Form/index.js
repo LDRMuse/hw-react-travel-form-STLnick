@@ -71,43 +71,43 @@ export const Form = () => {
         })
   }
 
-    return (
-      <form>
-        {this.textInputs.map(({ name, placeholder }, i) => (
-          <Input
-            name={name}
-            placeholder={placeholder}
-            inputHandler={this.handleChange}
-            key={i}
-          />
-        ))}
-
-        {this.genderInputs.map(({ name, value }, i) => (
-          <Radio
-            checked={this.state.gender === value}
-            name={name}
-            value={value}
-            handler={this.handleChange}
-            key={i}
-          />
-        ))}
-
-        <Select
-          selections={this.destinations}
-          selectionsHandler={this.handleChange}
+  return (
+    <form>
+      {textInputs.map(({ name, placeholder }, i) => (
+        <Input
+          name={name}
+          placeholder={placeholder}
+          inputHandler={handleChange}
+          key={i}
         />
+      ))}
 
-        {this.dietaryRestrictions.map(({ name, value = name }, i) => (
-          <Checkbox
-            name={name}
-            value={value}
-            handler={this.handleChange}
-            checked={this.state[name]}
-            key={i}
-          />
-        ))}
+      {genderInputs.map(({ name, value }, i) => (
+        <Radio
+          checked={gender === value}
+          name={name}
+          value={value}
+          handler={handleChange}
+          key={i}
+        />
+      ))}
 
-        <button>Submit</button>
-      </form>
-    )
-  }
+      <Select
+        selections={destinations}
+        selectionsHandler={handleChange}
+      />
+
+      {dietaryRestrictions.map(({ name, value = name }, i) => (
+        <Checkbox
+          name={name}
+          value={value}
+          handler={handleChange}
+          checked={name === 'isVegan' ? isVegan : isLactose}
+          key={i}
+        />
+      ))}
+
+      <button>Submit</button>
+    </form>
+  )
+}
