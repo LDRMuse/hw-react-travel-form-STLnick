@@ -60,7 +60,7 @@ export const Form = () => {
   ]
 
   const handleChange = ({ target }) => {
-    const { name, value, type, checked } = target
+    const { name, value, checked } = target
     switch (name) {
       case 'destination':
         setDestination(value)
