@@ -1,6 +1,6 @@
 export default () => ({
   async addTravel(newTravel) {
-    const res = await fetch('localhost:5000/travels/add', {
+    const res = await fetch('http://localhost:5000/travels/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -10,7 +10,7 @@ export default () => ({
     return await res.json()
   },
   async deleteAllTravels() {
-    const res = await fetch('localhost:5000/travels/delete', {
+    const res = await fetch('http://localhost:5000/travels/delete', {
       method: 'DELETE'
     })
     return await res.json()
