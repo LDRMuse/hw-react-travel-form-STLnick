@@ -14,10 +14,12 @@ export const Input = ({ error, inputHandler, name, placeholder, type }) => {
       <input
         className="input mb-4 is-link"
         id={name}
-        type={type}
         name={name}
-        placeholder={placeholder}
         onChange={handleChange}
+        pattern={type === 'email' ? '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$' : '^[a-zA-Z]+$'}
+        placeholder={placeholder}
+        required
+        type={type}
       />
     </div>
     {error ? <p className="help is-danger">{error}</p> : null}
