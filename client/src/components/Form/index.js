@@ -4,6 +4,8 @@ import api from 'api'
 import { Checkbox, Input, Radio } from "./Inputs"
 import { Select } from "./Select"
 
+const travelsRepo = api()
+
 export const Form = () => {
   const [destination, setDestination] = useState('India')
   const [email, setEmail] = useState('')
@@ -130,7 +132,7 @@ export const Form = () => {
       }
 
       // Submit new travel form to request
-      api.addTravel(newTravel)
+      const addRes = await travelsRepo.addTravel(newTravel)
     }
   }
 

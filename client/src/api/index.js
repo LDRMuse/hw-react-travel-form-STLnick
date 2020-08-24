@@ -1,4 +1,4 @@
-export default {
+export default () => ({
   async addTravel(newTravel) {
     const res = await fetch('localhost:5000/travels/add', {
       method: 'POST',
@@ -15,4 +15,4 @@ export default {
     })
     return await res.json()
   }
-}
+})
