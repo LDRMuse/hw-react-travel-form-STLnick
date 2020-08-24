@@ -71,7 +71,6 @@ export const Form = () => {
         })
   }
 
-  render() {
     return (
       <form>
         {this.textInputs.map(({ name, placeholder }, i) => (
@@ -112,4 +111,3 @@ export const Form = () => {
       </form>
     )
   }
-}
