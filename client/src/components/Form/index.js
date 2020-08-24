@@ -118,7 +118,11 @@ export const Form = () => {
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleDelete = async () => {
+    const deleteRes = await travelsRepo.deleteAllTravels()
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     if (!emailError && !firstNameError && !lastNameError) {
@@ -177,8 +181,13 @@ export const Form = () => {
           ))}
         </div>
 
-        <button className="button is-link has-text-weight-bold">Submit</button>
+        <button className="button is-link has-text-weight-bold is-uppercase">Submit</button>
       </form>
+      <button
+        className="deleteBtn button is-danger has-text-weight-bold is-uppercase"
+        onClick={handleDelete}>
+        Delete All Travels
+      </button>
     </div>
   )
 }
