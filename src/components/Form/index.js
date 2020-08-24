@@ -11,7 +11,6 @@ export const Form = () => {
   const [isLactose, setIsLactose] = useState(false)
   const [isVegan, setIsVegan] = useState(false)
   const [lastName, setLastName] = useState('')
-  const [location, setLocation] = useState('')
 
   const destinations = {
     name: "destination",
