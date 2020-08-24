@@ -4,8 +4,8 @@ import { Checkbox, Input, Radio } from "./Inputs"
 import { Select } from "./Select"
 
 export const Form = () => {
-  const [age, setAge] = useState('')
   const [destination, setDestination] = useState('India')
+  const [email, setEmail] = useState('')
   const [firstName, setFirstName] = useState('')
   const [gender, setGender] = useState('')
   const [isLactose, setIsLactose] = useState(false)
@@ -54,8 +54,9 @@ export const Form = () => {
       placeholder: "Last Name",
     },
     {
-      name: "age",
-      placeholder: "Age",
+      name: "email",
+      placeholder: "Email",
+      type: 'email'
     },
   ]
 
@@ -68,11 +69,11 @@ export const Form = () => {
         : setIsLactose(checked)
     } else {
       switch (name) {
-        case 'age':
-          setAge(value)
-          break;
         case 'destination':
           setDestination(value)
+          break;
+        case 'email':
+          setEmail(value)
           break;
         case 'gender':
           setGender(value)
@@ -91,12 +92,13 @@ export const Form = () => {
 
   return (
     <form className="has-text-centered">
-      {textInputs.map(({ name, placeholder }, i) => (
+      {textInputs.map(({ name, placeholder, type }, i) => (
         <Input
           name={name}
           placeholder={placeholder}
           inputHandler={handleChange}
           key={i}
+          type={type}
         />
       ))}
       <div>

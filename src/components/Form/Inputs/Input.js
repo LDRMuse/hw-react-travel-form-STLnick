@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-export const Input = ({ inputHandler, name, placeholder }) => {
+export const Input = ({ inputHandler, name, placeholder, type }) => {
 
 
   const handleChange = (event) => {
@@ -13,7 +13,7 @@ export const Input = ({ inputHandler, name, placeholder }) => {
     <input
       className="input mb-4 is-success"
       id={name}
-      type="text"
+      type={type}
       name={name}
       placeholder={placeholder}
       onChange={handleChange} />
@@ -21,11 +21,13 @@ export const Input = ({ inputHandler, name, placeholder }) => {
 }
 
 Input.defaultProps = {
-  placeholder: ""
+  placeholder: "",
+  type: 'text'
 }
 
 Input.propTypes = {
   inputHandler: PropTypes.func,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
+  type: PropTypes.string
 };
