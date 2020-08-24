@@ -13,6 +13,7 @@ export const RadioInput = ({ checked, handler, name, value }) => {
         <label className="label px-4">
           {value}
           <input
+            className="ml-2"
             type="radio"
             name={name}
             value={value}

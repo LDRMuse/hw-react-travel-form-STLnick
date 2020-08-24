@@ -13,6 +13,7 @@ export const CheckboxInput = ({ checked, handler, name }) => {
         <label className="px-4">
           {name}
           <input
+            className="ml-2"
             type="checkbox"
             name={name}
             checked={checked}
