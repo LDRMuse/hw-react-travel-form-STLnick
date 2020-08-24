@@ -100,7 +100,7 @@ export const Form = () => {
           type={type}
         />
       ))}
-      <div>
+      <div className="is-flex">
         {genderInputs.map(({ name, value }, i) => (
           <Radio
             checked={gender === value}
@@ -116,7 +116,7 @@ export const Form = () => {
         selections={destinations}
         selectionsHandler={handleChange}
       />
-      <div>
+      <div className="is-flex">
         {dietaryRestrictions.map(({ name, value = name }, i) => (
           <Checkbox
             name={name}
