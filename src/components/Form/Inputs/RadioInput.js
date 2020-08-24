@@ -18,6 +18,7 @@ export const RadioInput = ({ checked, handler, name, value }) => {
             name={name}
             value={value}
             checked={checked}
+            required
             onChange={handleChange}
           />
         </label>
