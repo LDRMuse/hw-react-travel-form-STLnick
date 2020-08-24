@@ -65,7 +65,10 @@ export const Form = () => {
     },
   ]
 
-  const validateInput = (value, pattern = /^[a-zA-Z]+$/g) => value && value.match(pattern)
+  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+  const lettersRegex = /^[a-zA-Z]+$/g
+
+  const validateInput = (value, pattern = lettersRegex) => value && value.match(pattern)
 
   const handleChange = ({ target }) => {
     const { name, value, checked } = target
@@ -75,7 +78,7 @@ export const Form = () => {
         setDestination(value)
         break;
       case 'email':
-        if (!validateInput(value, /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)) {
+        if (!validateInput(value, emailRegex)) {
           setEmailError('Enter a valid email address')
         } else {
           setEmail(value)
