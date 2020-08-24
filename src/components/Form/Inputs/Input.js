@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 export class Input extends React.Component {
-  static defaultProps= {
+  static defaultProps = {
     placeholder: ""
   }
 
@@ -17,6 +17,11 @@ export class Input extends React.Component {
   }
 
   render() {
-    return <input type="text" name={this.props.name} placeholder={this.props.placeholder} onChange={this.handleChange}/>;
+    return <input
+      className="input mb-4 is-success"
+      type="text"
+      name={this.props.name}
+      placeholder={this.props.placeholder}
+      onChange={this.handleChange} />;
   }
 }

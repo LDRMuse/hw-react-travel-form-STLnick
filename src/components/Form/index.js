@@ -90,7 +90,7 @@ export const Form = () => {
   }
 
   return (
-    <form>
+    <form className="has-text-centered">
       {textInputs.map(({ name, placeholder }, i) => (
         <Input
           name={name}
@@ -99,33 +99,35 @@ export const Form = () => {
           key={i}
         />
       ))}
-
-      {genderInputs.map(({ name, value }, i) => (
-        <Radio
-          checked={gender === value}
-          name={name}
-          value={value}
-          handler={handleChange}
-          key={i}
-        />
-      ))}
+      <div>
+        {genderInputs.map(({ name, value }, i) => (
+          <Radio
+            checked={gender === value}
+            name={name}
+            value={value}
+            handler={handleChange}
+            key={i}
+          />
+        ))}
+      </div>
 
       <Select
         selections={destinations}
         selectionsHandler={handleChange}
       />
+      <div>
+        {dietaryRestrictions.map(({ name, value = name }, i) => (
+          <Checkbox
+            name={name}
+            value={value}
+            handler={handleChange}
+            checked={name === 'isVegan' ? isVegan : isLactose}
+            key={i}
+          />
+        ))}
+      </div>
 
-      {dietaryRestrictions.map(({ name, value = name }, i) => (
-        <Checkbox
-          name={name}
-          value={value}
-          handler={handleChange}
-          checked={name === 'isVegan' ? isVegan : isLactose}
-          key={i}
-        />
-      ))}
-
-      <button>Submit</button>
+      <button className="button is-success">Submit</button>
     </form>
   )
 }

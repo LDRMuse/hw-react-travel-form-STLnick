@@ -8,7 +8,7 @@ export const RadioInput = ({ checked, handler, name, value }) => {
   }
 
   return (
-    <label>
+    <label className="px-4">
       {value}
       <input
         type="radio"

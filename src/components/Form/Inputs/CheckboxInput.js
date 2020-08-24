@@ -8,7 +8,7 @@ export const CheckboxInput = ({ checked, handler, name }) => {
   }
 
   return (
-    <label>
+    <label className="px-4">
       {name}
       <input
         type="checkbox"

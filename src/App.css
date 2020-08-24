@@ -1,0 +1,17 @@
+body {
+  align-items: center;
+  display: flex;
+  background: linear-gradient(dodgerblue, plum);
+  height: 102vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  justify-content: space-around;
+  width: 300px;
+}
