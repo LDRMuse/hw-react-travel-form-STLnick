@@ -1,26 +1,26 @@
-import dotenv from 'dotenv'
-import { MongoClient } from 'mongodb'
+import dotenv from 'dotenv';
+import { MongoClient } from 'mongodb';
 
-dotenv.config()
+dotenv.config();
 
 const client = new MongoClient(
   process.env.MONGODB_URI,
   {
-    useUnifiedTopology: true
-  }
+    useUnifiedTopology: true,
+  },
 );
 
 (async () => {
-  client.connect()
+  client.connect();
+  console.log('Client is connected to DB');
 
   process.on('SIGINT', () => {
     client.close().then(() => {
-      console.info('SIGINT received: DB connection is closing')
+      console.info('SIGINT received: DB connection is closing');
 
-      process.exit(0)
-    })
-  })
-
-})()
+      process.exit(0);
+    });
+  });
+})();
 
 export default client;
