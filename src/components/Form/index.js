@@ -61,31 +61,30 @@ export const Form = () => {
 
   const handleChange = ({ target }) => {
     const { name, value, type, checked } = target
-
-    if (type === 'checkbox') {
-      name === 'isVegan'
-        ? setIsVegan(checked)
-        : setIsLactose(checked)
-    } else {
-      switch (name) {
-        case 'destination':
-          setDestination(value)
-          break;
-        case 'email':
-          setEmail(value)
-          break;
-        case 'gender':
-          setGender(value)
-          break;
-        case 'fname':
-          setFirstName(value)
-          break;
-        case 'lname':
-          setLastName(value)
-          break;
-        default:
-          console.log('Error with input value...')
-      }
+    switch (name) {
+      case 'destination':
+        setDestination(value)
+        break;
+      case 'email':
+        setEmail(value)
+        break;
+      case 'gender':
+        setGender(value)
+        break;
+      case 'isVegan':
+        setIsVegan(checked)
+        break;
+      case 'isLactoseFree':
+        setIsLactose(checked)
+        break;
+      case 'fname':
+        setFirstName(value)
+        break;
+      case 'lname':
+        setLastName(value)
+        break;
+      default:
+        console.log('Error with input value...')
     }
   }
 
