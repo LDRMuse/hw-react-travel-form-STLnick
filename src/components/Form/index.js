@@ -89,45 +89,47 @@ export const Form = () => {
   }
 
   return (
-    <form className="has-text-centered">
-      {textInputs.map(({ name, placeholder, type }, i) => (
-        <Input
-          name={name}
-          placeholder={placeholder}
-          inputHandler={handleChange}
-          key={i}
-          type={type}
+    <div className="box has-background-light">
+      <form className="has-text-centered py-3">
+        {textInputs.map(({ name, placeholder, type }, i) => (
+          <Input
+            name={name}
+            placeholder={placeholder}
+            inputHandler={handleChange}
+            key={i}
+            type={type}
+          />
+        ))}
+        <div className="is-flex">
+          {genderInputs.map(({ name, value }, i) => (
+            <Radio
+              checked={gender === value}
+              name={name}
+              value={value}
+              handler={handleChange}
+              key={i}
+            />
+          ))}
+        </div>
+
+        <Select
+          selections={destinations}
+          selectionsHandler={handleChange}
         />
-      ))}
-      <div className="is-flex">
-        {genderInputs.map(({ name, value }, i) => (
-          <Radio
-            checked={gender === value}
-            name={name}
-            value={value}
-            handler={handleChange}
-            key={i}
-          />
-        ))}
-      </div>
+        <div className="is-flex">
+          {dietaryRestrictions.map(({ name, value = name }, i) => (
+            <Checkbox
+              name={name}
+              value={value}
+              handler={handleChange}
+              checked={name === 'isVegan' ? isVegan : isLactose}
+              key={i}
+            />
+          ))}
+        </div>
 
-      <Select
-        selections={destinations}
-        selectionsHandler={handleChange}
-      />
-      <div className="is-flex">
-        {dietaryRestrictions.map(({ name, value = name }, i) => (
-          <Checkbox
-            name={name}
-            value={value}
-            handler={handleChange}
-            checked={name === 'isVegan' ? isVegan : isLactose}
-            key={i}
-          />
-        ))}
-      </div>
-
-      <button className="button is-link has-text-weight-bold">Submit</button>
-    </form>
+        <button className="button is-link has-text-weight-bold">Submit</button>
+      </form>
+    </div>
   )
 }
