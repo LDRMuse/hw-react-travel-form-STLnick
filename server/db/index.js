@@ -10,7 +10,7 @@ export const addTravel = async (newTravel) => {
 
 export const deleteTravels = async () => {
   try {
-    return await client.db('travelplans').collection('travels').remove({})
+    return await client.db('travelplans').collection('travels').deleteMany({});
   } catch (err) {
     throw new Error(err)
   }
