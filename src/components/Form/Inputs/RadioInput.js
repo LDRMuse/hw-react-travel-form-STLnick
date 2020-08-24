@@ -8,16 +8,20 @@ export const RadioInput = ({ checked, handler, name, value }) => {
   }
 
   return (
-    <label className="px-4">
-      {value}
-      <input
-        type="radio"
-        name={name}
-        value={value}
-        checked={checked}
-        onChange={handleChange}
-      />
-    </label>
+    <div className="field">
+      <div className="control">
+        <label className="label px-4">
+          {value}
+          <input
+            type="radio"
+            name={name}
+            value={value}
+            checked={checked}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
+    </div>
   );
 }
 

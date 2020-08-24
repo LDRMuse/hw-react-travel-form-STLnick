@@ -8,16 +8,18 @@ export const Input = ({ inputHandler, name, placeholder, type }) => {
     inputHandler(event)
   }
 
-  return <>
-    <label className="sr-only" htmlFor={name}>{name}</label>
-    <input
-      className="input mb-4 is-success"
-      id={name}
-      type={type}
-      name={name}
-      placeholder={placeholder}
-      onChange={handleChange} />
-  </>;
+  return <div className="field">
+    <label className="label sr-only" htmlFor={name}>{name}</label>
+    <div className="control">
+      <input
+        className="input mb-4 is-success"
+        id={name}
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        onChange={handleChange} />
+    </div>
+  </div>
 }
 
 Input.defaultProps = {

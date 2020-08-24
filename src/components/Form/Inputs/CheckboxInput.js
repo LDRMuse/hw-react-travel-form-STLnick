@@ -8,16 +8,20 @@ export const CheckboxInput = ({ checked, handler, name }) => {
   }
 
   return (
-    <label className="px-4">
-      {name}
-      <input
-        type="checkbox"
-        name={name}
-        checked={checked}
-        onChange={handleChange}
-        value={name}
-      />
-    </label>
+    <div className="field">
+      <div className="control">
+        <label className="px-4">
+          {name}
+          <input
+            type="checkbox"
+            name={name}
+            checked={checked}
+            onChange={handleChange}
+            value={name}
+          />
+        </label>
+      </div>
+    </div>
   )
 }
 
