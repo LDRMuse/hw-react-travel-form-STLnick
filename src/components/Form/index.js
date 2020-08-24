@@ -6,11 +6,14 @@ import { Select } from "./Select"
 export const Form = () => {
   const [destination, setDestination] = useState('India')
   const [email, setEmail] = useState('')
+  const [emailError, setEmailError] = useState('')
   const [firstName, setFirstName] = useState('')
+  const [firstNameError, setFirstNameError] = useState('')
   const [gender, setGender] = useState('')
   const [isLactose, setIsLactose] = useState(false)
   const [isVegan, setIsVegan] = useState(false)
   const [lastName, setLastName] = useState('')
+  const [lastNameError, setLastNameError] = useState('')
 
   const destinations = {
     name: "destination",
