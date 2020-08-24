@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import api from 'api'
 
 import { Checkbox, Input, Radio } from "./Inputs"
 import { Select } from "./Select"
@@ -115,9 +116,27 @@ export const Form = () => {
     }
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    if (!emailError && !firstNameError && !lastNameError) {
+      const newTravel = {
+        firstName,
+        lastName,
+        email,
+        destination,
+        gender,
+        dietaryRestrictions: { isLactose, isVegan }
+      }
+
+      // Submit new travel form to request
+      api.addTravel(newTravel)
+    }
+  }
+
   return (
     <div className="box has-background-light">
-      <form className="has-text-centered py-3">
+      <form className="has-text-centered py-3" onSubmit={handleSubmit}>
         {textInputs.map(({ error, name, placeholder, type }, i) => (
           <Input
             error={error}
