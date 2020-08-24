@@ -65,13 +65,25 @@ export const Form = () => {
     },
   ]
 
+  const validator = {
+    validateEmails: (value) => {
+
+    },
+    validateNames: (value) => {
+      const lettersRegex = new RegExp(/^[a-zA-Z]+$/g)
+      return (value && lettersRegex.test(value)) || 'Name must be non-empty and letters only'
+    }
+  }
+
   const handleChange = ({ target }) => {
     const { name, value, checked } = target
+
     switch (name) {
       case 'destination':
         setDestination(value)
         break;
       case 'email':
+        // TODO: Validate our value and if valid proceed with setState else show error
         setEmail(value)
         break;
       case 'gender':
@@ -84,10 +96,20 @@ export const Form = () => {
         setIsLactose(checked)
         break;
       case 'fname':
-        setFirstName(value)
+        if (typeof validator.validateNames(value) === 'string') {
+          setFirstNameError(validator.validateNames(value))
+        } else {
+          setFirstName(value)
+          setFirstNameError('')
+        }
         break;
       case 'lname':
-        setLastName(value)
+        if (typeof validator.validateNames(value) === 'string') {
+          setLastNameError(validator.validateNames(value))
+        } else {
+          setLastName(value)
+          setLastNameError('')
+        }
         break;
       default:
         console.log('Error with input value...')
