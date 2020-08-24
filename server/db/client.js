@@ -23,3 +23,4 @@ const client = new MongoClient(
 
 })()
 
+export default client;
