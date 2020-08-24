@@ -65,16 +65,7 @@ export const Form = () => {
     },
   ]
 
-  const validator = {
-    validateEmails: (value) => {
-      const emailRegex = new RegExp(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)
-      return (value && emailRegex.test(value)) || 'Enter a valid email address'
-    },
-    validateNames: (value) => {
-      const lettersRegex = new RegExp(/^[a-zA-Z]+$/g)
-      return (value && lettersRegex.test(value)) || 'Name must be non-empty and letters only'
-    }
-  }
+  const validateInput = (value, pattern = /^[a-zA-Z]+$/g) => value && value.match(pattern)
 
   const handleChange = ({ target }) => {
     const { name, value, checked } = target
@@ -84,8 +75,8 @@ export const Form = () => {
         setDestination(value)
         break;
       case 'email':
-        if (typeof validator.validateEmails(value) === 'string') {
-          setEmailError(validator.validateEmails(value))
+        if (!validateInput(value, /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)) {
+          setEmailError('Enter a valid email address')
         } else {
           setEmail(value)
           setEmailError('')
@@ -101,16 +92,16 @@ export const Form = () => {
         setIsLactose(checked)
         break;
       case 'fname':
-        if (typeof validator.validateNames(value) === 'string') {
-          setFirstNameError(validator.validateNames(value))
+        if (!validateInput(value)) {
+          setFirstNameError('Names must not be empty and letters only')
         } else {
           setFirstName(value)
           setFirstNameError('')
         }
         break;
       case 'lname':
-        if (typeof validator.validateNames(value) === 'string') {
-          setLastNameError(validator.validateNames(value))
+        if (!validateInput(value)) {
+          setLastNameError('Names must not be empty and letters only')
         } else {
           setLastName(value)
           setLastNameError('')
