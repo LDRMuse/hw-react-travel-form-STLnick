@@ -17,7 +17,8 @@ export const Input = ({ error, inputHandler, name, placeholder, type }) => {
         type={type}
         name={name}
         placeholder={placeholder}
-        onChange={handleChange} />
+        onChange={handleChange}
+      />
     </div>
     {error ? <p className="help is-danger">{error}</p> : null}
   </div>

@@ -67,7 +67,8 @@ export const Form = () => {
 
   const validator = {
     validateEmails: (value) => {
-
+      const emailRegex = new RegExp(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)
+      return (value && emailRegex.test(value)) || 'Enter a valid email address'
     },
     validateNames: (value) => {
       const lettersRegex = new RegExp(/^[a-zA-Z]+$/g)
@@ -83,8 +84,12 @@ export const Form = () => {
         setDestination(value)
         break;
       case 'email':
-        // TODO: Validate our value and if valid proceed with setState else show error
-        setEmail(value)
+        if (typeof validator.validateEmails(value) === 'string') {
+          setEmailError(validator.validateEmails(value))
+        } else {
+          setEmail(value)
+          setEmailError('')
+        }
         break;
       case 'gender':
         setGender(value)
