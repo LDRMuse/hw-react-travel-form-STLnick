@@ -48,14 +48,17 @@ export const Form = () => {
 
   const textInputs = [
     {
+      error: firstNameError,
       name: "fname",
       placeholder: "First Name",
     },
     {
+      error: lastNameError,
       name: "lname",
       placeholder: "Last Name",
     },
     {
+      error: emailError,
       name: "email",
       placeholder: "Email",
       type: 'email'
@@ -94,8 +97,9 @@ export const Form = () => {
   return (
     <div className="box has-background-light">
       <form className="has-text-centered py-3">
-        {textInputs.map(({ name, placeholder, type }, i) => (
+        {textInputs.map(({ error, name, placeholder, type }, i) => (
           <Input
+            error={error}
             name={name}
             placeholder={placeholder}
             inputHandler={handleChange}

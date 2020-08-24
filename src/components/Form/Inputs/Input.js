@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-export const Input = ({ inputHandler, name, placeholder, type }) => {
+export const Input = ({ error, inputHandler, name, placeholder, type }) => {
 
 
   const handleChange = (event) => {
@@ -19,6 +19,7 @@ export const Input = ({ inputHandler, name, placeholder, type }) => {
         placeholder={placeholder}
         onChange={handleChange} />
     </div>
+    {error ? <p className="help is-danger">{error}</p> : null}
   </div>
 }
 
@@ -28,6 +29,7 @@ Input.defaultProps = {
 }
 
 Input.propTypes = {
+  error: PropTypes.string,
   inputHandler: PropTypes.func,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
