@@ -127,7 +127,7 @@ export const Form = () => {
         ))}
       </div>
 
-      <button className="button is-success has-text-weight-bold">Submit</button>
+      <button className="button is-link has-text-weight-bold">Submit</button>
     </form>
   )
 }

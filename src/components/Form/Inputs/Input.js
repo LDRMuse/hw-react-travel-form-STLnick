@@ -12,7 +12,7 @@ export const Input = ({ inputHandler, name, placeholder, type }) => {
     <label className="label sr-only" htmlFor={name}>{name}</label>
     <div className="control">
       <input
-        className="input mb-4 is-success"
+        className="input mb-4 is-link"
         id={name}
         type={type}
         name={name}
