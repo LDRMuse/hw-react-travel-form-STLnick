@@ -12,15 +12,13 @@ export const Form = () => {
   const [isVegan, setIsVegan] = useState(false)
   const [lastName, setLastName] = useState('')
   const [location, setLocation] = useState('')
-    location: "",
-  }
 
-  destinations = {
+  const destinations = {
     name: "destination",
     options: ["India", "America", "Australia", "Germany"],
   }
 
-  dietaryRestrictions = [
+  const dietaryRestrictions = [
     {
       name: "isVegan",
       type: "checkbox",
@@ -33,7 +31,7 @@ export const Form = () => {
     },
   ]
 
-  genderInputs = [
+  const genderInputs = [
     {
       name: "gender",
       type: "radio",
@@ -46,7 +44,7 @@ export const Form = () => {
     },
   ]
 
-  textInputs = [
+  const textInputs = [
     {
       name: "fname",
       placeholder: "First Name",
@@ -61,7 +59,7 @@ export const Form = () => {
     },
   ]
 
-  handleChange = ({ target }) => {
+  const handleChange = ({ target }) => {
     const { name, value, type, checked } = target
 
     type === "checkbox"
