@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { useState } from "react"
 
 import { Checkbox, Input, Radio } from "./Inputs"
 import { Select } from "./Select"
