@@ -137,6 +137,15 @@ export const Form = () => {
 
       // Submit new travel form to request
       const addRes = await travelsRepo.addTravel(newTravel)
+
+      // Reset form fields
+      document.querySelector('#fname').value = ''
+      document.querySelector('#lname').value = ''
+      document.querySelector('#email').value = ''
+      setDestination('india')
+      setGender('')
+      setIsLactose(false)
+      setIsVegan(false)
     }
   }
 
