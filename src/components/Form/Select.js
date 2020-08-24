@@ -5,7 +5,7 @@ export const Select = ({ selections, selectionsHandler }) => (
   <div className="field">
     <div className="control">
       <select
-        className="select"
+        className="select is-size-6"
         name={selections.name}
         onBlur={selectionsHandler}
         onChange={selectionsHandler}>
