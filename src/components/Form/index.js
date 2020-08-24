@@ -3,15 +3,15 @@ import React, { useState } from "react"
 import { Checkbox, Input, Radio } from "./Inputs"
 import { Select } from "./Select"
 
-export class Form extends Component {
-  state = {
-    firstName: "",
-    lastName: "",
-    age: "",
-    gender: "",
-    destination: "India",
-    isVegan: false,
-    isLactose: false,
+export const Form = () => {
+  const [age, setAge] = useState('')
+  const [destination, setDestination] = useState('India')
+  const [firstName, setFirstName] = useState('')
+  const [gender, setGender] = useState('')
+  const [isLactose, setIsLactose] = useState(false)
+  const [isVegan, setIsVegan] = useState(false)
+  const [lastName, setLastName] = useState('')
+  const [location, setLocation] = useState('')
     location: "",
   }
 
