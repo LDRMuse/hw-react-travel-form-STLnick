@@ -166,6 +166,7 @@ export const Form = () => {
         </div>
 
         <Select
+          selected={destination}
           selections={destinations}
           selectionsHandler={handleChange}
         />

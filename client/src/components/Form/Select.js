@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-export const Select = ({ selections, selectionsHandler }) => (
+export const Select = ({ selected, selections, selectionsHandler }) => (
   <div className="field">
     <div className="control">
       <select
@@ -10,13 +10,20 @@ export const Select = ({ selections, selectionsHandler }) => (
         onBlur={selectionsHandler}
         onChange={selectionsHandler}>
         {selections.options.map((option, i) => (
-          <option value={option.toLowerCase()} key={i}>{option}</option>
+          <option
+            value={option.toLowerCase()}
+            key={i}
+            selected={option.toLowerCase() === selected ? true : false}>
+            {option}
+          </option>
         ))}
       </select>
     </div>
   </div>
 );
+
 Select.propTypes = {
+  selected: PropTypes.string,
   selections: PropTypes.object.isRequired,
   selectionsHandler: PropTypes.func
 };
