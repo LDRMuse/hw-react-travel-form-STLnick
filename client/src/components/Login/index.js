@@ -59,7 +59,7 @@ export const Login = () => {
           />
           <button
             className="button is-link has-text-weight-bold is-uppercase">
-            Login
+            See Travels
         </button>
         </form>
       }
