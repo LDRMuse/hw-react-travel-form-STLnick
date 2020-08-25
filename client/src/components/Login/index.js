@@ -28,6 +28,13 @@ export const Login = () => {
     setTravels(findRes)
   }
 
+  const renderTableRows = () => {
+    return travels.map(({ destination }, i) => {
+      const capitalizedDest = destination.charAt(0).toUpperCase() + destination.slice(1);
+      return <tr key={i}><td>{capitalizedDest}</td></tr>
+    })
+  }
+
   return (
     <div className="box has-background-light">
       {travels.length
