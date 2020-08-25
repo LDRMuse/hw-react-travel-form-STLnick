@@ -9,6 +9,7 @@ const travelsRepo = api()
 export const Login = () => {
   const [email, setEmail] = useState('')
   const [emailError, setEmailError] = useState('')
+  const [travels, setTravels] = useState([])
 
   const handleChange = ({ target: { value } }) => {
     if (!utils.validateInput(value, utils.emailRegex)) {
@@ -24,6 +25,7 @@ export const Login = () => {
     // TODO: Send request to MongoDB for findMany() where email: {email}
     const findRes = await travelsRepo.getTravels({ 'email': email })
     console.log('GET TRAVELS RES: ', findRes)
+    setTravels(findRes)
   }
 
   return (
