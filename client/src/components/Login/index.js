@@ -30,19 +30,32 @@ export const Login = () => {
 
   return (
     <div className="box has-background-light">
-      <form className="login-form has-text-centered py-3" onSubmit={handleSubmit}>
-        <Input
-          error={emailError}
-          name='email'
-          placeholder='Email to login'
-          inputHandler={handleChange}
-          type='email'
-        />
-        <button
-          className="button is-link has-text-weight-bold is-uppercase">
-          Login
+      {travels.length
+        ? <table>
+          <caption>Travels for {email}</caption>
+          <thead>
+            <tr>
+              <th>Destination</th>
+            </tr>
+          </thead>
+          <tbody>
+            {renderTableRows()}
+          </tbody>
+        </table>
+        : <form className="login-form has-text-centered py-3" onSubmit={handleSubmit}>
+          <Input
+            error={emailError}
+            name='email'
+            placeholder='Email to login'
+            inputHandler={handleChange}
+            type='email'
+          />
+          <button
+            className="button is-link has-text-weight-bold is-uppercase">
+            Login
         </button>
-      </form>
+        </form>
+      }
     </div>
   )
 }
