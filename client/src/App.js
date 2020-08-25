@@ -1,6 +1,7 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom'
 
-import { Form, Header } from './components'
+import { Form, Header, Login } from './components'
 
 import 'bulma/css/bulma.css'
 import './App.css';
@@ -11,7 +12,14 @@ export const App = () => {
       <div className="column"></div>
       <div className="has-text-centered">
         <Header />
-        <Form />
+        <Switch>
+          <Route path='/login'>
+            <Login />
+          </Route>
+          <Route path='/'>
+            <Form />
+          </Route>
+        </Switch>
       </div>
       <div className="column"></div>
     </div>
