@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import utils from 'utils'
 
 import { Input } from '../Form/Inputs/Input'
 
@@ -7,8 +8,12 @@ export const Login = () => {
   const [emailError, setEmailError] = useState('')
 
   const handleChange = ({ target: { value } }) => {
-    // TODO: Validate email
-    setEmail(value)
+    if (!utils.validateInput(value, utils.emailRegex)) {
+      setEmailError('Enter a valid email address')
+    } else {
+      setEmail(value)
+      setEmailError('')
+    }
   }
 
   const handleSubmit = () => {
