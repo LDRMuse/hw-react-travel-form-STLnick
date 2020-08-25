@@ -15,3 +15,11 @@ export const deleteTravels = async () => {
     throw new Error(err);
   }
 };
+
+export const getTravels = async (emailObj) => {
+  try {
+    return await client.db('travelplans').collection('travels').find(emailObj).toArray();
+  } catch (err) {
+    throw new Error(err);
+  }
+};

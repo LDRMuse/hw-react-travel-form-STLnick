@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import api from 'api'
 import utils from 'utils'
 
 import { Input } from '../Form/Inputs/Input'
+
+const travelsRepo = api()
 
 export const Login = () => {
   const [email, setEmail] = useState('')
@@ -16,8 +19,11 @@ export const Login = () => {
     }
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     // TODO: Send request to MongoDB for findMany() where email: {email}
+    const findRes = await travelsRepo.getTravels({ 'email': email })
+    console.log('GET TRAVELS RES: ', findRes)
   }
 
   return (
