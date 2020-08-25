@@ -16,6 +16,10 @@ form {
   width: 300px;
 }
 
+.login-form {
+  justify-content: center;
+}
+
 .sr-only {
   left: -99999px;
   position: absolute;
