@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import api from 'api'
+import utils from 'utils'
 
 import { Checkbox, Input, Radio } from "./Inputs"
 import { Select } from "./Select"
@@ -68,11 +69,6 @@ export const Form = () => {
     },
   ]
 
-  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
-  const lettersRegex = /^[a-zA-Z]+$/g
-
-  const validateInput = (value, pattern = lettersRegex) => value && value.match(pattern)
-
   const handleChange = ({ target }) => {
     const { name, value, checked } = target
 
@@ -81,7 +77,7 @@ export const Form = () => {
         setDestination(value)
         break;
       case 'email':
-        if (!validateInput(value, emailRegex)) {
+        if (!utils.validateInput(value, utils.emailRegex)) {
           setEmailError('Enter a valid email address')
         } else {
           setEmail(value)
@@ -98,7 +94,7 @@ export const Form = () => {
         setIsLactose(checked)
         break;
       case 'fname':
-        if (!validateInput(value)) {
+        if (!utils.validateInput(value, utils.lettersRegex)) {
           setFirstNameError('Names must not be empty and letters only')
         } else {
           setFirstName(value)
@@ -106,7 +102,7 @@ export const Form = () => {
         }
         break;
       case 'lname':
-        if (!validateInput(value)) {
+        if (!utils.validateInput(value, utils.lettersRegex)) {
           setLastNameError('Names must not be empty and letters only')
         } else {
           setLastName(value)
