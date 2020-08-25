@@ -20,6 +20,21 @@ form {
   justify-content: center;
 }
 
+table {
+  width: 100%;
+}
+
+table, th, td {
+  border-bottom: 1px solid dodgerblue;
+  border-collapse: collapse;
+}
+
+caption {
+  color: dodgerblue;
+  font-size: 20px;
+  font-weight: 600;
+}
+
 .sr-only {
   left: -99999px;
   position: absolute;
